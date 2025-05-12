@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ WARNING: RANSOMWARE DETECTED ⚠️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: #000;
+            color: #ff0000;
+            text-align: center;
+            overflow: hidden;
+            cursor: none;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .virus-screen {
+            position: relative;
+            z-index: 1000;
+            padding: 20px;
+            max-width: 800px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #ff0000;
+            animation: glitch 1s infinite;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 1.3rem;
+            margin: 15px 0;
+            animation: flicker 3s infinite;
+        }
+        
+        .warning {
+            font-size: 1.8rem;
+            color: #ff5555;
+            text-transform: uppercase;
+        }
+        
+        .countdown {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ff0000;
+            margin: 20px 0;
+            text-shadow: 0 0 15px #ff0000;
+            animation: pulse 1s infinite;
+        }
+        
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 0, 0, 0.7);
+            animation: scan 3s linear infinite;
+            z-index: 1001;
+        }
+        
+        .blood-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="blood"><feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="5" stitchTiles="stitch"/><feColorMatrix values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 20 -10"/></filter><rect width="100%" height="100%" filter="url(%23blood)" opacity="0.3"/></svg>');
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        .error-code {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: #ff5555;
+            margin-top: 30px;
+            animation: blink 0.8s infinite;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            color: #ff0000;
+            font-size: 0.8rem;
+            z-index: 1002;
+        }
+        
+        /* Animations */
+        @keyframes glitch {
+            0%, 100% { text-shadow: 0 0 10px #ff0000; }
+            25% { text-shadow: -5px -5px 0 #00ff00; }
+            50% { text-shadow: 5px 5px 0 #0000ff; }
+            75% { text-shadow: -5px 5px 0 #ffff00; }
+        }
+        
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 22%, 24%, 55% { opacity: 0.3; }
+        }
+        
+        @keyframes scan {
+            0% { top: -2px; }
+            100% { top: 100%; }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="blood-effect"></div>
+    <div class="scan-line"></div>
+    
+    <div class="virus-screen">
+        <h1>⚠️ RANSOMWARE ATTACK ⚠️</h1>
+        <p class="warning">YOUR PHONE HAS BEEN HACKED!</p>
+        <p>All your files are encrypted with military-grade AES-256.</p>
+        <p>Pay <span style="color: #ffff00;">0.5 BTC</span> to unlock your device.</p>
+        <p>Time remaining before permanent lock:</p>
+        
+        <div class="countdown" id="countdown">10</div>
+        
+        <p>Do not close this window or your data will be lost forever!</p>
+        
+        <div class="error-code">
+            ERROR: #ZXTZY-RANSOMWARE-666<br>
+            [DEVICE_ID: XXXXXXXX]<br>
+            [ENCRYPTION: 100% COMPLETE]
+        </div>
+    </div>
+    
+    <footer>
+        ©Copyright By ZanXtzyZ Official - Developer
+    </footer>
+    
+    <script>
+        // Hitung mundur 10 detik
+        let seconds = 10;
+        const countdownElement = document.getElementById("countdown");
+        
+        const timer = setInterval(() => {
+            seconds--;
+            countdownElement.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(timer);
+                document.body.innerHTML = `
+                <div style="
+                    background: #000;
+                    color: #ff0000;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 20px;
+                ">
+                    <h1 style="font-size: 3rem; text-shadow: 0 0 10px #ff0000; margin-bottom: 20px;">🔒 DEVICE LOCKED! 🔒</h1>
+                    <p style="font-size: 1.5rem; margin-bottom: 10px;">Send 0.5 BTC to unlock your phone.</p>
+                    <p style="font-size: 1rem; color: #ff5555;">All your data is now encrypted.</p>
+                    <p style="font-size: 0.8rem; margin-top: 30px; color: #ff0000;">©Copyright By ZanXtzyZ Official - Developer</p>
+                </div>
+                `;
+            }
+        }, 1000);
+        
+        // Efek cursor darah
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.style.position = 'fixed';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.borderRadius = '50%';
+            cursor.style.background = 'rgba(255, 0, 0, 0.5)';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.zIndex = '9999';
+            cursor.style.transform = 'translate(-50%, -50%)';
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => {
+                cursor.style.opacity = '0';
+                setTimeout(() => cursor.remove(), 500);
+            }, 300);
+        });
+    </script>
+</body>
+</html>
+
+> *Creator : ZanXtzyZ Official!*
+
+*Cara Pasang, 1.Buat File Namanya ( zanxtzyzoffc.html ) Habis Buat File Html Sung Kalian buka File ya terus tempel Code yang gw kasi!, habis itu Kalian Coba buka kalau Otomasi mengarah ke Browser/chrome artinya berhasil!*
+
+> *NOTE : DILARANG KERAS ME-RENAME CODE JIKA TIDAK MAU EROR!*
+
+> *SUMBER UTAMA ( CREATOR! )*
+
+https://whatsapp.com/channel/0029Vb3wrn87YSd73TgtLs1x
+
+> *NOTE : GAUSH HAPUS SUMBER UTAMA/CREATOR YATIM, NGEYEL HAPUS SUMBER UTAMA/CREATOR? GW DOAIN LU YATIM PIATU!*
+
+> *SUMBER SHARE*
+> MASUKIN LINK CH/GB LU AJA ASAL JANGAN HAPUS SUMBER/CREATOR!
+
+> *JANGAN LUPA FOLLOW CH UTAMA YAH, SOALNYA SERING BAGI-BAGI CODE KAYAK GINI LOH!*
